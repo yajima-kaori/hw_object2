@@ -11,7 +11,7 @@ $requestController = new RequestController();
 $action =  $requestController->header();
 
 
-if(method_exists($requestController,$param) && $param != "header" && $param != "footer")
+if(method_exists($requestController,$param) && strpos($param,'action') !==false)
 {
   $action =  $requestController->$param();
 }
