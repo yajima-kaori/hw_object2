@@ -5,12 +5,13 @@ require_once('RequestController.php');
 $param = $_GET['action'];
 
 
+
 $requestController = new RequestController();
 
 $action =  $requestController->header();
 
 
-if(method_exists($requestController,$param))
+if(method_exists($requestController,$param) && $param != "header" && $param != "footer")
 {
   $action =  $requestController->$param();
 }
